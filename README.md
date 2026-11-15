@@ -1,16 +1,14 @@
 # All You Need Is Intention
 
-All You Need Is Intention helps you judge a repo by the outcomes you asked for. It preserves your exact prompts and corrections in Git so a future agent can reconstruct the requirements, write acceptance checks, and decide whether to keep, repair, refactor, or rebuild.
+All You Need Is Intention keeps your exact prompts and corrections in Git so a future coding agent can recover what you wanted and check whether the project delivers it.
 
 ## Why keep the original prompts?
 
-1. **Models are changing quickly.** The same request can get a much better result from a model released a few months later.
-2. **The harness matters too.** Different models, harnesses, skills, and tools can produce different results from the same prompt.
-3. **Rebuilding is getting easier and cheaper.** If earlier work left the repo cluttered or took it in the wrong direction, a later agent can read the original requests and decide whether to fix, refactor, or rebuild.
+Models, tools, and coding agents improve at different rates. A newer agent may understand the same request better or find a simpler way to deliver the result.
 
-An improved model may understand a rough or ambiguous prompt better than the agent that first acted on it. The original wording gives a second agent an independent starting point. Designs and code can change freely within the requested outcomes and necessary compatibility and data-preservation constraints.
+**The original prompts make those improvements easy to use.** Give a newer agent the requests and corrections you already wrote. It can independently reconstruct the requirements and define acceptance checks. That saves you from explaining the project again or tracing earlier implementation decisions.
 
-For a focused task, a handful of relevant prompts and corrections may be enough to get started. The reviewer can pull in a specific reply or check the code when a decision needs more context.
+Use the checks to decide what to do with the code. Keep it if it delivers the outcomes, repair a specific gap, refactor when restructuring helps, or rebuild when the expected improvement justifies the effort.
 
 ## Get started
 
