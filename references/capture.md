@@ -17,7 +17,13 @@ start
 
 `pause` closes the active window. `resume` opens a new one. `resume --backfill` also imports retained prompts from completed paused windows. Use `backfill --paused --dry-run` to inspect available counts and source IDs. Backfill accepts explicit UTC-bounded dates, `--source`, `--session`, and temporary `--path SOURCE=PATH` overrides. Missing sources and read errors appear in the command result. A missing or pruned native transcript can leave gaps.
 
-The tracked `.intention/config.toml` marks the repo as enrolled. `.intention/prompts/` contains per-session JSONL files. A record has a stable source ID, a UTC timestamp, an ordered list of verbatim text parts, and an attachment count. Attachment contents remain in the original harness. Assistant replies remain in the original harness and can be quoted by the review only when needed. Include journal changes through normal Git review. Everyone who can read the Git history can read prompts committed into it.
+The tracked `.intention/config.toml` marks the repo as enrolled. `.intention/prompts/` contains per-session JSONL files. A record has a stable source ID, a UTC timestamp, an ordered list of verbatim text parts, and an attachment count. Attachment contents and ordinary assistant replies remain in the original harness.
+
+## Sharing prompt evidence
+
+Anyone with access to the Git history can read committed prompts and reply excerpts. Keep sensitive sessions and reports local and inspect files before staging them from `.intention/prompts/` or `.intention/reviews/`. For files already tracked, inspect staged changes too, since [Git ignore rules apply to untracked files](https://git-scm.com/docs/gitignore). For a focused review, select shareable prompts by ID and record the limited scope.
+
+Pause before entering sensitive material. Resume capture normally and backfill only the sessions or time ranges you have cleared to share. `resume --backfill` includes the paused intervals. Keep any published excerpt separate from the verbatim journal and cite its source. If a credential reaches shared history, [revoke or rotate it before cleaning the history](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
 ## Source readers
 

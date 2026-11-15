@@ -1,6 +1,6 @@
 # All You Need Is Intention
 
-All You Need Is Intention saves your original coding-agent prompts in Git so a future agent can recover what you wanted and check what shipped.
+All You Need Is Intention helps you judge a repo by the outcomes you asked for. It preserves your exact prompts and corrections in Git so a future agent can reconstruct the requirements, write acceptance checks, and decide whether to keep, repair, refactor, or rebuild.
 
 ## Why keep the original prompts?
 
@@ -8,7 +8,7 @@ All You Need Is Intention saves your original coding-agent prompts in Git so a f
 2. **The harness matters too.** Different models, harnesses, skills, and tools can produce different results from the same prompt.
 3. **Rebuilding is getting easier and cheaper.** If earlier work left the repo cluttered or took it in the wrong direction, a later agent can read the original requests and decide whether to fix, refactor, or rebuild.
 
-An improved model may understand a rough or ambiguous prompt better than the agent that first acted on it. The original wording also lets a second agent form an independent reading before comparing it with the first agent's plan or implementation.
+An improved model may understand a rough or ambiguous prompt better than the agent that first acted on it. The original wording gives a second agent an independent starting point. Designs and code can change freely within the requested outcomes and necessary compatibility and data-preservation constraints.
 
 For a focused task, a handful of relevant prompts and corrections may be enough to get started. The reviewer can pull in a specific reply or check the code when a decision needs more context.
 
@@ -18,18 +18,18 @@ The recorder uses Python 3.11+, Git, and local harness history. The review runs 
 
 1. Put this entire folder in a skill location supported by your harness, or give your agent the path to [SKILL.md](SKILL.md).
 2. From the Git checkout you want to enroll, run `python3 /path/to/all-you-need-is-intention/scripts/intention.py enable`. On Windows use `py -3` with the script's path.
-3. Include `.intention/config.toml` and prompt journals in ordinary Git commits. In a new clone, run `enable` once to start local capture.
-4. Ask your agent to review the repo against the archive. It snapshots the prompts, cites the evidence, and saves a dated review.
+3. Commit `.intention/config.toml` and review prompt journals for sensitive material before sharing them in Git. In a new clone, run `enable` once to start local capture.
+4. Ask your agent to reconstruct intent from the original prompts. It derives acceptance checks, uses current behavior to evaluate the options, and saves a cited review.
 
 Use [capture.md](references/capture.md) for pause, resume, source paths, and backfill. Use [review.md](references/review.md) for the report format and worktree workflow.
 
 ## A review from original prompts
 
-Suppose you told an agent, “Keep CSV export available without requiring another login.” Months later, a reviewer can cite that exact prompt, check whether the current export honors the constraint, and record the result alongside the Git revision and the model that ran the review.
+Suppose you told an agent, “Keep CSV export available without requiring another login.” A later reviewer can turn that into a check. From a signed-in session, Export CSV downloads a readable CSV without a second login prompt. If the current export passes, keep it. If it fails, use the result to scope the change.
 
 ## Share the project
 
-> All You Need Is Intention saves your exact coding-agent prompts in Git so future agents can recover what you asked for, check what shipped, and plan a fix or rebuild.
+> All You Need Is Intention turns your original coding-agent prompts into acceptance checks so another agent can decide what to keep, fix, or rebuild.
 
 If the skill is useful to you, star it on GitHub. If you write about it, feel free to quote the description and link readers to the [original repository](https://github.com/rairurairu/all-you-need-is-intention).
 

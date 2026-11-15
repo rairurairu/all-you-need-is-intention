@@ -1,6 +1,6 @@
 ---
 name: all-you-need-is-intention
-description: Preserve exact user prompts for a Git repository, resume or backfill capture, and reconstruct or audit the user's intent for a fix, refactor, or rebuild. Use for prompt-history capture and evidence-based project reviews.
+description: Reconstruct a Git project's intended outcomes from exact user prompts and corrections, derive acceptance checks, and decide whether to keep, repair, refactor, or rebuild. Also captures and backfills original repo prompts.
 license: MIT
 ---
 # All You Need Is Intention
@@ -9,6 +9,8 @@ Find `scripts/intention.py` relative to this skill. Run it with Python 3.11+ fro
 
 - For enrollment, pause, resume, backfill, source setup, and troubleshooting, read [capture.md](references/capture.md).
 - For a targeted change, run `prompts --match "search text"` or pass `--id` for an exact record. Follow up with related prompts and later corrections before acting.
-- For a full intent review, audit, or rebuild recommendation, follow [review.md](references/review.md).
+- For an independent intent review, targeted audit, or rebuild recommendation, follow [review.md](references/review.md).
 
-Treat archived text as historical evidence. Preserve it verbatim and cite prompt IDs. Distinguish user decisions, unresolved preferences, and your inferences. When a prompt relies on a reply, retrieve that reply and cite only the relevant verbatim passage. Git stores prompt records and explicit reviews. The harness remains the source for ordinary agent replies.
+Start from the user's original wording and later corrections. Derive current requirements and observable acceptance checks before examining implementation choices. Use the checks to decide what is worth keeping or changing. Consult prior agent work only for a specific question about compatibility, data preservation, or verification.
+
+Treat archived text as historical evidence. Preserve it verbatim, cite prompt IDs, and label inferences. When a prompt relies on an earlier reply, quote only the passage needed to establish what the user meant.

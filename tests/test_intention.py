@@ -257,6 +257,7 @@ class IntentionTest(unittest.TestCase):
                 "timestamp": iso()})
         self.assertEqual(2, self.cli("import-seed", seed)[0]["added"])
         manifest = self.cli("prepare-review", "--model", "fixture", "--effort", "medium")[0]
+        self.assertEqual("intent", manifest["mode"])
         run_id = manifest["run_id"]
         first, = self.cli("review-prompts", run_id, "--limit", "1")
         last, = self.cli("review-prompts", run_id, "--offset", "1")
@@ -272,7 +273,8 @@ class IntentionTest(unittest.TestCase):
             "requirements": [{"text": "Use the selected option", "basis": "explicit",
                               "prompt_ids": [last["id"]]}],
             "unresolved": [], "recommendation": {"kind": "repair", "rationale": "Local change"},
-            "plan": ["Implement the selected option"], "findings": [], "verification": [],
+            "plan": ["Implement the selected option"], "findings": [],
+            "verification": ["Run the selected export. It uses the second option."],
             "reply_quotes": [{**quote, "text": "Altered"}],
         }
         report.write_text(json.dumps(value))
@@ -282,7 +284,17 @@ class IntentionTest(unittest.TestCase):
         report.write_text(json.dumps(value))
         result = self.cli("save-review", run_id, "--seed", seed, "--report", report)[0]
         self.assertTrue(result["coverage_complete"])
-        self.assertNotIn("Unrelated details", Path(result["report"]).read_text())
+        saved = json.loads(Path(result["report"]).read_text(encoding="utf-8"))
+        self.assertEqual(value["verification"], saved["report"]["verification"])
+        self.assertNotIn("Unrelated details", json.dumps(saved))
+        legacy = self.cli("prepare-review", "--mode", "audit", "--id", last["id"])[0]
+        self.assertEqual("audit", legacy["mode"])
+        self.assertEqual([last], self.cli("review-prompts", legacy["run_id"]))
+        value["reviewed_prompt_count"] = 1
+        value["verification"] = []
+        report.write_text(json.dumps(value))
+        self.assertTrue(self.cli("save-review", legacy["run_id"], "--seed", seed,
+                                 "--report", report)[0]["coverage_complete"])
         append(seed, {"type": "message", "role": "user", "id": "u3",
                       "text": "New requirement after review.", "timestamp": iso()})
         self.assertEqual(1, self.cli("import-seed", seed)[0]["added"])

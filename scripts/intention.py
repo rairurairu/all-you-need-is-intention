@@ -263,7 +263,8 @@ def command_parser():
 
     prep = subs.add_parser("prepare-review", help="freeze the prompt inputs and run metadata")
     scope(prep)
-    prep.add_argument("--mode", choices=["intent", "audit"], default="audit")
+    prep.add_argument("--mode", choices=["intent", "audit"], default="intent",
+                      help="review intent by default, or audit a specific claim")
     prep.add_argument("--from-review", help="use a previous review's exact recorded prompt set")
     for name in ("provider", "model", "effort", "harness", "harness-version"):
         prep.add_argument(f"--{name}", default="unknown")
