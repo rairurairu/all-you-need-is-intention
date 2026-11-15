@@ -1,8 +1,20 @@
 # All You Need Is Intention
 
-Keep the original user prompts for a repo and use them to reconstruct intent, audit what shipped, or plan a repair, refactor, or rebuild. The recorder uses Python 3.11+, Git, and local harness history. The review runs in the agent you choose.
+All You Need Is Intention saves your original coding-agent prompts in Git so a future agent can recover what you wanted and check what shipped.
+
+## Why keep the original prompts?
+
+1. **Models are changing quickly.** The same request can get a much better result from a model released a few months later.
+2. **The harness matters too.** Different models, harnesses, skills, and tools can produce different results from the same prompt.
+3. **Rebuilding is getting easier and cheaper.** If earlier work left the repo cluttered or took it in the wrong direction, a later agent can read the original requests and decide whether to fix, refactor, or rebuild.
+
+An improved model may understand a rough or ambiguous prompt better than the agent that first acted on it. The original wording also lets a second agent form an independent reading before comparing it with the first agent's plan or implementation.
+
+For a focused task, a handful of relevant prompts and corrections may be enough to get started. The reviewer can pull in a specific reply or check the code when a decision needs more context.
 
 ## Get started
+
+The recorder uses Python 3.11+, Git, and local harness history. The review runs in the agent you choose.
 
 1. Put this entire folder in a skill location supported by your harness, or give your agent the path to [SKILL.md](SKILL.md).
 2. From the Git checkout you want to enroll, run `python3 /path/to/all-you-need-is-intention/scripts/intention.py enable`. On Windows use `py -3` with the script's path.
