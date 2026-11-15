@@ -35,7 +35,7 @@ Install the main AYNII skill, then use the shortcut for your agent.
 | Pi | Copy [`aynii.md`](commands/aynii.md) to `~/.pi/agent/prompts/aynii.md`. | `/aynii status` |
 | Hermes Agent | Install the whole AYNII folder in `~/.hermes/skills/`. If the alias is absent from `/help skills`, copy the [`aynii` skill folder](commands/aynii) beside the main skill. | `/aynii status` |
 
-Use `$aynii r csv` in Codex or `/aynii r csv` in slash-command agents to review CSV-related requirements. See the [command list](references/commands.md) for other actions.
+Run `$aynii review` in Codex or `/aynii review` in slash-command agents to review the full prompt journal for the current repo. Use `r` as shorthand. Add a topic only to narrow the review. See the [command list](references/commands.md) for other actions.
 
 Chat shortcuts start an agent turn. Run the [capture CLI](references/capture.md) directly for local operations that use zero model tokens. Template-based shortcuts can expand before capture. AYNII preserves the text the host persists to its session store.
 
