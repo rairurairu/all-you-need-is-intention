@@ -15,7 +15,7 @@ import tomllib
 
 from sources import HARNESSES, default_paths, json_lines, moment, scan
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 CONFIG = b'schema = 1\n'
 UTC = timezone.utc
 
