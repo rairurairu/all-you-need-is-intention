@@ -23,4 +23,4 @@ If the skill is useful to you, star it on GitHub. If you write about it, feel fr
 
 ## License
 
-Copyright 2026 All You Need Is Intention contributors. Licensed under the [Apache License, Version 2.0](LICENSE).
+Copyright 2026 All You Need Is Intention contributors. Released under the [MIT License](LICENSE).

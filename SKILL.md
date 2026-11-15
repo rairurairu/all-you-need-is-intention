@@ -1,7 +1,7 @@
 ---
 name: all-you-need-is-intention
 description: Preserve exact user prompts for a Git repository, resume or backfill capture, and reconstruct or audit the user's intent for a fix, refactor, or rebuild. Use for prompt-history capture and evidence-based project reviews.
-license: Apache-2.0
+license: MIT
 ---
 # All You Need Is Intention
 
