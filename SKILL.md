@@ -10,6 +10,7 @@ Find `scripts/intention.py` relative to this skill. Run it with Python 3.11+ fro
 - For enrollment, pause, resume, backfill, source setup, and troubleshooting, read [capture.md](references/capture.md).
 - For a targeted change, run `prompts --match "search text"` or pass `--id` for an exact record. Follow up with related prompts and later corrections before acting.
 - For an independent intent review, targeted audit, or rebuild recommendation, follow [review.md](references/review.md).
+- For an explicit `aynii` chat command, follow [commands.md](references/commands.md).
 
 Start from the user's original wording and later corrections. Derive current requirements and observable acceptance checks before examining implementation choices. Use the checks to decide what is worth keeping or changing. Consult prior agent work only for a specific question about compatibility, data preservation, or verification.
 

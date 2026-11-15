@@ -23,6 +23,24 @@ The recorder uses Python 3.11+, Git, and local harness history. The review runs 
 
 Use [capture.md](references/capture.md) for pause, resume, source paths, and backfill. Use [review.md](references/review.md) for the report format and worktree workflow.
 
+## Chat command
+
+Install the main AYNII skill, then use the shortcut for your agent.
+
+| Agent | Shortcut setup | Run it in chat |
+| --- | --- | --- |
+| Codex | Install the whole AYNII folder, including `commands/`, in a Codex skill directory such as `.agents/skills/`. Codex discovers the bundled alias. | `$aynii status` |
+| Claude Code | Copy [`aynii.md`](commands/aynii.md) to `.claude/commands/aynii.md` in the target checkout. | `/aynii status` |
+| OpenCode | Copy [`aynii.md`](commands/aynii.md) to `.opencode/commands/aynii.md` in the target checkout. | `/aynii status` |
+| Pi | Copy [`aynii.md`](commands/aynii.md) to `~/.pi/agent/prompts/aynii.md`. | `/aynii status` |
+| Hermes Agent | Install the whole AYNII folder in `~/.hermes/skills/`. If the alias is absent from `/help skills`, copy the [`aynii` skill folder](commands/aynii) beside the main skill. | `/aynii status` |
+
+Try `review CSV export` after the shortcut name to start a focused review. See the [command list](references/commands.md) for other actions.
+
+Chat shortcuts start an agent turn. Run the [capture CLI](references/capture.md) directly for local operations that use zero model tokens. Template-based shortcuts can expand before capture. AYNII preserves the text the host persists to its session store.
+
+Each host documents its shortcut format. [OpenAI Docs](https://learn.chatgpt.com/docs/build-skills) · [Claude Code](https://code.claude.com/docs/en/skills) · [OpenCode](https://opencode.ai/docs/commands) · [Pi](https://docs.pi.dev/latest/prompt-templates) · [Hermes Agent](https://hermes-agent.nousresearch.com/docs/reference/slash-commands)
+
 ## A review from original prompts
 
 Suppose you told an agent, “Keep CSV export available without requiring another login.” A later reviewer can turn that into a check. From a signed-in session, Export CSV downloads a readable CSV without a second login prompt. If the current export passes, keep it. If it fails, use the result to scope the change.

@@ -1,0 +1,5 @@
+interface:
+  display_name: "AYNII"
+  short_description: "Run an All You Need Is Intention command"
+policy:
+  allow_implicit_invocation: false
